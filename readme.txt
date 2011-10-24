@@ -22,7 +22,7 @@ Simply include the requisite scripts in your page header:
 Now, go ahead, do a projection transformation!
  
 	// In this example, we go from Massachusetts State Plane to WGS84
-	transformation = HodgeProj4.coordinates(761254.49731, 2944252.55218).from('EPSG2249').to('WGS84');
+	transformation = HodgeProj4.transform(761254.49731, 2944252.55218).from('EPSG2249').to('WGS84');
 	
 	// You just transformed x,y inline, so now you can do stuff like:
 	drawDotOnMap(transformation.x, transformation.y);

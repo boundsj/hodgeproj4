@@ -28,7 +28,7 @@
  * 	Now, go ahead, do a projection transformation!
  * 
  *  	// In this example, we go from Massachusetts State Plane to WGS84
- *  	transformation = HodgeProj4.coordinates(761254.49731, 2944252.55218).from('EPSG2249').to('WGS84');
+ *  	transformation = HodgeProj4.transform(761254.49731, 2944252.55218).from('EPSG2249').to('WGS84');
  *		// You just transformed x,y inline, so now you can do stuff like:
  *		drawDotOnMap(transformation.x, transformation.y); 
  * 
@@ -59,9 +59,9 @@ HodgeProj4 = {
 	destination: null,
 	
 	/** 
-    * Method: coordinates(x (lat), y (lon))
+    * Method: transform(x (lat), y (lon))
     * Set HodgeProj object's x,y coordinates so that we can do something with them 
-    * (like project them from one plane to the destination projection)
+    * (like transform them from one plane to the destination projection)
     *
     * Parameters:
     * x - {Proj4js.Proj} src map projection for the transformation
@@ -72,7 +72,7 @@ HodgeProj4 = {
     * Returns:
     * HodgeProj4 object itself with the point property set using the passed in parameters
     */
-	coordinates: function(x, y) {					
+	transform: function(x, y) {					
 		this.point = new Proj4js.Point(x, y);   		
 		return this;
 	},
